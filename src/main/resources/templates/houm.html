@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Продукты</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Список товаров</h1>
+<ul>
+    <li th:each="product : ${products}">
+        <span th:text="${product.name}"></span> -
+        <span th:text="${product.price}"></span> руб.
+        <p th:text="${product.description}"></p>
+    </li>
+</ul>
+
+<h2>Добавить товар</h2>
+<form action="/products/add" method="post">
+    <input type="text" name="name" placeholder="Название">
+    <input type="number" name="price" placeholder="Цена">
+    <input type="text" name="description" placeholder="Описание">
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>
